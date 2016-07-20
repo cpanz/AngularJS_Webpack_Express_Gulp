@@ -8,7 +8,13 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: {
+        except: ['$', '$exports', 'angular']
+      }
+    })
   ],
   module: {
     preLoaders: [{ test: /\.js$/, loader: 'eslint-loader' }],
