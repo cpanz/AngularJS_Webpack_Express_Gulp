@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  dev: "source-map",
+  devtool: "source-map",
   entry: "./app/app.js",
   output: {
     path: __dirname + '/public',
@@ -29,6 +29,5 @@ module.exports = {
   eslint: {
     configFile: '.eslintrc.json'
   },
-  watch: true,
   colors: true
 };

@@ -7,13 +7,15 @@ var routes = require('./routes/index');
 var app = express();
 
 // Webpack
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var appConfig = require('./webpack.config')
-var compiler = webpack(appConfig);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: appConfig.output.publicPath }));
-app.use(webpackHotMiddleware(compiler));
+if(process.env.NODE_ENV !== 'production') {
+  var webpack = require('webpack');
+  var webpackDevMiddleware = require('webpack-dev-middleware');
+  var webpackHotMiddleware = require('webpack-hot-middleware');
+  var appConfig = require('./webpack.config')
+  var compiler = webpack(appConfig);
+  app.use(webpackDevMiddleware(compiler, { noInfo: false, publicPath: appConfig.output.publicPath }));
+  app.use(webpackHotMiddleware(compiler));
+}
 
 
 // uncomment after placing your favicon in /public

@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  dev: "source-map",
+  devtool: "eval-source-map",
   entry: "./app/app.js",
   output: {
     path: __dirname + '/public',
