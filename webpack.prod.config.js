@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: "source-map",
@@ -14,7 +15,12 @@ module.exports = {
       mangle: {
         except: ['$super', '$', 'exports', 'require', 'angular']
       }
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      inject: 'body',
+      hash: true
+    }),
   ],
   module: {
     preLoaders: [{ test: /\.js$/, loader: 'eslint-loader' }],
