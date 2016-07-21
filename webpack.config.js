@@ -1,19 +1,28 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: "eval-source-map",
-  entry: "./app/app.js",
+  devtool: "source-map",
+  target: "node",
+  entry: [
+    "./app/app.js"
+  ],
   output: {
     path: __dirname + '/public',
     filename: "bundle.js"
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: 'app/index.html',
+      inject: 'body',
+      hash: true
+    }),
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
-    preLoaders: [{ test: /\.js$/, loader: 'eslint-loader' }],
     loaders: [
-      { test: /\.js$/, exclude: [/node_modules/], loader: 'ng-annotate!babel' },
+      { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
+      { test: /\.html$/, loader: 'raw' },
       { test: /\.css$/, loader: 'style!css' }
     ]
   },

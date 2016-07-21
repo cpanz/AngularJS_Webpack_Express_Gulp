@@ -1,18 +1,25 @@
-(function() {
-  'use strict';
+import angular from 'angular';
+import uiRouter from 'angular-ui-router';
+// import 'bootstrap/dist/css/bootstrap.css';
 
-  angular.module('app', [
-    'ngRoute'
+import template from './app.html';
+import IndexController from './components/index/index.controller';
+
+angular.module('app', [
+    uiRouter,
+    IndexController
   ])
-  .config(config);
+  .component('app', appComponent);
 
-  function config($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'components/index/index.view.html',
-        controller: 'IndexController',
-        controllerAs: 'vm'
-      });
+  let appComponent = function () {
+    return {
+      template: 'template',
+      restrict: 'AE'
+    }
+  };
+
+  function config() {
+    
+
+    // $locationProvider.html5Mode(true);
   }
-
-})();

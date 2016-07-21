@@ -12,7 +12,7 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       mangle: {
-        except: ['$', '$exports', 'angular']
+        except: ['$super', '$', 'exports', 'require', 'angular']
       }
     })
   ],
