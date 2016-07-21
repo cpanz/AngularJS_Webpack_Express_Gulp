@@ -1,4 +1,4 @@
-import template from './index.view.html';
+import template from './index.html';
 import controller from './index.controller';
 
 let indexComponent = {

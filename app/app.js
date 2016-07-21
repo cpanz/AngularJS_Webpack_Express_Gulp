@@ -15,5 +15,4 @@ angular.module('app', [
   function config($locationProvider) {
     "ngInject";
 
-    $locationProvider.html5Mode(true);
   }
