@@ -5,7 +5,8 @@ let indexComponent = {
     restrict: 'AE',
     bindings: {},
     template,
-    controller
+    controller,
+    controllerAs: 'index'
 };
 
 export default indexComponent;

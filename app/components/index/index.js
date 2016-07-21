@@ -20,16 +20,5 @@ let indexModule = angular.module('index', [
   })
   .component('index', indexComponent).name;
 
-  // config.$inject = ['$stateProvider', '$urlRouterProvider'];
-  // function config($stateProvider, $urlRouterProvider) {
-
-  //   $urlRouterProvider.otherwise('/');
-
-  //   $stateProvider
-  //     .state('index', {
-  //       url: '/',
-  //       component: 'index'
-  //     });
-  // }
 
 export default indexModule;

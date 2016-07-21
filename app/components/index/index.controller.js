@@ -1,6 +1,6 @@
 class IndexController {
   constructor() {
-    this.name = 'index';
+    this.name = 'Index';
   }
 }
 
