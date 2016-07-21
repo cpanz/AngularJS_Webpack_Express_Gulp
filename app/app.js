@@ -1,25 +1,19 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-// import 'bootstrap/dist/css/bootstrap.css';
 
 import template from './app.html';
-import IndexController from './components/index/index.controller';
+import Components from './components/components';
+import appComponent from './app.component';
 
 angular.module('app', [
     uiRouter,
-    IndexController
+    Components
   ])
-  .component('app', appComponent);
+  .config(config)
+  .component('app', appComponent).name;
 
-  let appComponent = function () {
-    return {
-      template: 'template',
-      restrict: 'AE'
-    }
-  };
+  function config($locationProvider) {
+    "ngInject";
 
-  function config() {
-    
-
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
   }
